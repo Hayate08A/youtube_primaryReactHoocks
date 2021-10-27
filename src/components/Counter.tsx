@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 
+function initializeCounter() {
+  for (let i = 0; i < 20000; i++) {
+    console.log(i);
+  }
+  return 0;
+}
+
 const Counter: React.VFC = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(initializeCounter());
   return (
     <button
       onClick={() => {
