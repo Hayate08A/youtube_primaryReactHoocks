@@ -8,7 +8,10 @@ function initializeCounter() {
 }
 
 const Counter: React.VFC = () => {
-  const [count, setCount] = useState(initializeCounter());
+  const [count, setCount] = useState(() => {
+    const initialValue = initializeCounter();
+    return initialValue;
+  });
   return (
     <button
       onClick={() => {
