@@ -1,35 +1,15 @@
 import React, { useState } from 'react';
 
-type TName = {
-  first: string;
-  last: string;
-};
-
 export const InputForm: React.VFC = () => {
-  const [name, setName] = useState<TName>({ first: '', last: '' });
+  const [firstName, setFistName] = useState<string>('');
+  const [lastName, setLastName] = useState<string>('');
   return (
     <div>
-      <input
-        value={name.first}
-        onChange={(e) =>
-          setName((prevName) => ({
-            ...prevName,
-            first: e.target.value,
-          }))
-        }
-      />
-      <input
-        value={name.last}
-        onChange={(e) =>
-          setName((prevName) => ({
-            ...prevName,
-            last: e.target.value,
-          }))
-        }
-      />
+      <input value={firstName} onChange={(e) => setFistName(e.target.value)} />
+      <input value={lastName} onChange={(e) => setLastName(e.target.value)} />
       <p>
-        {name.first}
-        {name.last}
+        {firstName}
+        {lastName}
       </p>
     </div>
   );
