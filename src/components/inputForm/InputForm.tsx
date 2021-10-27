@@ -13,8 +13,8 @@ export const InputForm: React.VFC = () => {
         value={name.first}
         onChange={(e) =>
           setName((prevName) => ({
+            ...prevName,
             first: e.target.value,
-            last: prevName.last,
           }))
         }
       />
@@ -22,7 +22,7 @@ export const InputForm: React.VFC = () => {
         value={name.last}
         onChange={(e) =>
           setName((prevName) => ({
-            first: prevName.first,
+            ...prevName,
             last: e.target.value,
           }))
         }
