@@ -5,25 +5,31 @@ const Counter: React.VFC = () => {
   const [count2, setCount2] = useState(0);
 
   useEffect(() => {
-    console.log('effect');
-  }, []);
+    console.log('マウント時とcount1が変化した時にuseEffectが発火');
+  }, [count1]);
 
   return (
     <div>
-      <button
-        onClick={() => {
-          setCount1((prevCount) => prevCount + 1);
-        }}
-      >
-        {count1}
-      </button>
-      <button
-        onClick={() => {
-          setCount2((prevCount) => prevCount + 1);
-        }}
-      >
-        {count2}
-      </button>
+      <div>
+        <span>カウント１</span>
+        <button
+          onClick={() => {
+            setCount1((prevCount) => prevCount + 1);
+          }}
+        >
+          {count1}
+        </button>
+      </div>
+      <div>
+        <span>カウント２</span>
+        <button
+          onClick={() => {
+            setCount2((prevCount) => prevCount + 1);
+          }}
+        >
+          {count2}
+        </button>
+      </div>
     </div>
   );
 };
