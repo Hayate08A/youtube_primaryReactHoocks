@@ -6,6 +6,7 @@ const Counter: React.VFC = () => {
 
   useEffect(() => {
     console.log('マウント時とcount1が変化した時にuseEffectが発火');
+    setCount1((prevCount) => prevCount + 1);
   }, [count1]);
 
   return (
