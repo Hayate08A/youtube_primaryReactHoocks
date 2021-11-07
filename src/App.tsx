@@ -7,8 +7,9 @@ import InputForm from './components/inputForm/InputForm';
 function App() {
   return (
     <div className='App'>
-      <InputForm />
-      {/* <Counter /> */}
+      <h2>#3 useEffect</h2>
+      <Counter />
+      {/* <InputForm /> */}
     </div>
   );
 }

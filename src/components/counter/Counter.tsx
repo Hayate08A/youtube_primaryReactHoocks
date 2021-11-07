@@ -1,17 +1,13 @@
-import React, { useState } from 'react';
-
-function initializeCounter() {
-  for (let i = 0; i < 20000; i++) {
-    console.log(i);
-  }
-  return 0;
-}
+import React, { useEffect, useState } from 'react';
 
 const Counter: React.VFC = () => {
-  const [count, setCount] = useState(() => {
-    const initialValue = initializeCounter();
-    return initialValue;
-  });
+  const [count, setCount] = useState(0);
+
+useEffect(() => {
+  console.log("effect");
+  
+})
+
   return (
     <button
       onClick={() => {
