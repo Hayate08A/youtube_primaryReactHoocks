@@ -11,6 +11,7 @@ const Counter: React.VFC = () => {
       setCount1((prevCount) => prevCount + 1);
       console.log('countUp');
     }, 1000);
+    return;
   }, []);
 
   return (

@@ -11,7 +11,7 @@ function App() {
   };
   return (
     <div className='App'>
-      <h2>#3 useEffect</h2>
+      <h2>#2 useEffect</h2>
       <button onClick={() => handleDisplay()}>
         {isDisplay ? 'コンポーネントを非表示' : 'コンポーネントを表示'}
       </button>
