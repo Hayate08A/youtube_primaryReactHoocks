@@ -13,7 +13,7 @@ const Counter: React.VFC = () => {
     }, 1000);
     return () => {
       clearInterval(countUp);
-      console.log('unMount');
+      console.log('unMountの時にcleanupする');
     };
   }, []);
 
