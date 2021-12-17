@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState, useEffect } from "react";
 
 type TTodo = {
@@ -7,7 +8,7 @@ type TTodo = {
   completed: boolean;
 };
 
-type TPostType = {
+type TPost = {
   userId: number;
   id: number;
   title: string;
@@ -19,18 +20,45 @@ type TItem = {
   title: string;
 };
 
+type TResource = "todos" | "posts";
+
 const ItemList: React.VFC = () => {
   const [items, setItems] = useState<TItem[]>([]);
+  const [resource, setResource] = useState<TResource>("todos");
+  useEffect(() => {
+    const fetchItems = async () => {
+      try {
+        const response = await axios.get(
+          `https://jsonplaceholder.typicode.com/${resource}`
+        );
+        console.log(response);
+        const itemData: TItem[] = response.data.map(
+          (responseDate: TTodo | TPost) => {
+            return { id: responseDate, title: responseDate.title };
+          }
+        );
+        setItems(itemData);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchItems();
+  }, [resource]);
   const onTodoButtonClick = () => {
-    console.log("Todos");
+    setResource("todos");
   };
   const onPostButtonClick = () => {
-    console.log("Posts");
+    setResource("posts");
   };
   return (
     <div>
       <button onClick={() => onTodoButtonClick()}>Todos</button>
-      <button onClick={() => onTodoButtonClick()}>Posts</button>
+      <button onClick={() => onPostButtonClick()}>Posts</button>
+      <ul>
+        {items.map((item) => (
+          <li key={item.id}>{item.title}</li>
+        ))}
+      </ul>
     </div>
   );
 };
