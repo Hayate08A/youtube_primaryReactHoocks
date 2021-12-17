@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 // import logo from './logo.svg';
-import './App.css';
-import Counter from './components/counter/Counter';
+import "./App.css";
+import Counter from "./components/counter/Counter";
+import ItemList from "./components/itemList/ItemList";
 // import InputForm from './components/inputForm/InputForm';
 
 function App() {
@@ -10,13 +11,14 @@ function App() {
     setIsDisplay(!isDisplay);
   };
   return (
-    <div className='App'>
+    <div className="App">
       <h2>#2 useEffect</h2>
-      <button onClick={() => handleDisplay()}>
-        {isDisplay ? 'コンポーネントを非表示' : 'コンポーネントを表示'}
-      </button>
-      {isDisplay && <Counter />}
+      {/* <button onClick={() => handleDisplay()}>
+        {isDisplay ? "コンポーネントを非表示" : "コンポーネントを表示"}
+      </button> */}
+      {/* {isDisplay && <Counter />} */}
       {/* <InputForm /> */}
+      <ItemList />
     </div>
   );
 }

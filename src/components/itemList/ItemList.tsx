@@ -21,7 +21,18 @@ type TItem = {
 
 const ItemList: React.VFC = () => {
   const [items, setItems] = useState<TItem[]>([]);
-  return <div></div>;
+  const onTodoButtonClick = () => {
+    console.log("Todos");
+  };
+  const onPostButtonClick = () => {
+    console.log("Posts");
+  };
+  return (
+    <div>
+      <button onClick={() => onTodoButtonClick()}>Todos</button>
+      <button onClick={() => onTodoButtonClick()}>Posts</button>
+    </div>
+  );
 };
 
 export default ItemList;
