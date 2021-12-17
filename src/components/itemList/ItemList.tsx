@@ -55,8 +55,8 @@ const ItemList: React.VFC = () => {
       <button onClick={() => onTodoButtonClick()}>Todos</button>
       <button onClick={() => onPostButtonClick()}>Posts</button>
       <ul>
-        {items.map((item) => (
-          <li key={item.id}>{item.title}</li>
+        {items.map((item, i) => (
+          <li key={`item_${item.id}_${i}`}>{item.title}</li>
         ))}
       </ul>
     </div>
