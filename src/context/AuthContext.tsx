@@ -1,11 +1,21 @@
-import React, { createContext } from "react";
+import React, { useState, createContext } from "react";
 
 type TProps = {
   childlen: React.ReactNode;
 };
 
-export const AuthContext = createContext<boolean>(false);
+type TInitialAuth = {
+  userAuth: boolean;
+  setUserAuth: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+export const AuthContext = createContext<TInitialAuth | null>(null);
 
 export const AuthProvider: React.VFC<TProps> = ({ childlen }) => {
-  return <AuthContext.Provider value={false}>{childlen}</AuthContext.Provider>;
+  const [userAuth, setUserAuth] = useState(false);
+  return (
+    <AuthContext.Provider value={{ userAuth, setUserAuth }}>
+      {childlen}
+    </AuthContext.Provider>
+  );
 };
