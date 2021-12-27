@@ -1,4 +1,3 @@
-import React from "react";
 import "./App.css";
 import { AuthProvider } from "./context/AuthContext";
 import UserAuth from "./components/userAuth/UserAuth";
