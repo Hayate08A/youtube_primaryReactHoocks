@@ -1,3 +1,4 @@
+import React from "react";
 import "./App.css";
 import { AuthProvider } from "./context/AuthContext";
 import Bank from "./pages/bank/Bank";
