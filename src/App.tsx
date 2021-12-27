@@ -1,14 +1,14 @@
 import "./App.css";
 import { AuthProvider } from "./context/AuthContext";
-import UserAuth from "./components/userAuth/UserAuth";
+import Bank from "./pages/bank/Bank";
 
 function App() {
   return (
     <AuthProvider
       childlen={
         <div className="App">
-          <h2>#4 useContext</h2>
-          <UserAuth />
+          <h2>#5 useCReducer</h2>
+          <Bank />
         </div>
       }
     />
