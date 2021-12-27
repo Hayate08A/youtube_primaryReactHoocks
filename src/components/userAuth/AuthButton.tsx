@@ -5,19 +5,16 @@ const AuthButton: React.VFC = () => {
   const auth = useContext(AuthContext);
   console.log(auth);
 
-  const handleSignOut = () => {
-    auth?.setUserAuth(false);
-  };
-  const handleSignIn = () => {
-    auth?.setUserAuth(true);
+  const handleAuthCtlr = () => {
+    auth?.setUserAuth(auth.userAuth ? false : true);
   };
 
   return (
     <React.Fragment>
       {auth?.userAuth ? (
-        <button onClick={handleSignOut}>ログアウト</button>
+        <button onClick={handleAuthCtlr}>ログアウト</button>
       ) : (
-        <button onClick={handleSignIn}>ログイン</button>
+        <button onClick={handleAuthCtlr}>ログイン</button>
       )}
     </React.Fragment>
   );
