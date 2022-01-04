@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useState, useReducer } from "react";
 import styles from "./Bank.module.scss";
 
 type TState = {
@@ -26,12 +26,19 @@ const reducer = (state: TState, action: TAction) => {
 
 const Bank: React.VFC = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [amount, setAmount] = useState<number>(0);
   return (
     <div>
       <h4>残高 : {state.savings.toLocaleString()}円</h4>
       <div className={styles.operationArea}>
         <div>
-          <input />
+          <input
+            value={amount}
+            onChange={(e) => {
+              setAmount(Number(e.target.value));
+            }}
+            type={"number"}
+          />
           <span>円</span>
         </div>
         <div className={styles.buttons}>
