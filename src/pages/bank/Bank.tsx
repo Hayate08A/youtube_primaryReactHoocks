@@ -45,9 +45,11 @@ const Bank: React.VFC = () => {
   const [amount, setAmount] = useState<number>(0);
   const onDeposit = (amount: number) => {
     dispatch({ type: "DEPOSIT", payload: amount });
+    setAmount(0);
   };
   const onWithDraw = (amount: number) => {
     dispatch({ type: "WITHDRAW", payload: amount });
+    setAmount(0);
   };
   return (
     <div>
@@ -69,6 +71,7 @@ const Bank: React.VFC = () => {
         </div>
       </div>
       <div className={styles.history}>
+        <h4>履歴</h4>
         {state.histories.map((history, i) => {
           return (
             <p key={`bank_history_${i}`}>
